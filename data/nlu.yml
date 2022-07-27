@@ -1,0 +1,114 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: find_internship
+  examples: |
+    - How to get internship?
+    - Find internships near me.
+    - Find internships in Delhi.
+    - Internships for web development.
+    
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: stipend
+  examples: |
+    - I want paid internships.
+    - paid
+    - Look for paid
+
+- intent: place_of_work
+  examples: |
+    - I want Delhi based internships.
+    - I want internships in Delhi.
+    - Delhi
+
+- intent: area_of_interest
+  examples: |
+    - My domain is App Development.
+    - My field of interest is App developmentfield.
+    - App development.
+
+- intent: available_domains
+  examples: |
+    - I am confused.
+    - I have yet not decided.
+    - I am not sure.
+    - I have interest in more than one domains.
+
+- intent: mode_of_work
+  examples: |
+    - hybrid
+    - I want offline internships.
+    - online internships.
+    - work from home.
+

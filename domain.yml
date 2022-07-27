@@ -1,0 +1,112 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - stipend
+  - place_of_work
+  - area_of_interest
+  - available_domains
+  - mode_of_work
+  - find_internship
+
+
+# entities:
+#   - kind_of
+#   - location
+#   - field
+#   - mode
+#   - stipend
+
+# slots:
+#   kind_of_internship:
+#     type: categorical
+#     values:
+#     - paid
+#     - unpaid
+#     mappings:
+#     - type: from_entity
+#       entity: kind_of
+#       intent: stipend
+    
+#   placeofwork:
+#     type: text
+#     mappings:
+#     - type: from_entity
+#       entity: location
+
+#   domain_of_interest:
+#     type: text
+#     mappings:
+#     - type: from_entity
+#       entity: field
+
+#   work_mode:
+#     type: categorical
+#     values:
+#     - online
+#     - offline
+#     - hybrid
+#     mappings:
+#     - type: from_entity
+#       entity: mode
+
+
+responses:
+  utter_greet:
+  - text: "Hey! Are you looking for internships?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Oh!Sorry"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_goal:
+  - text: "How can I help you?"
+
+  utter_domain:
+  - text: "What is your field of interest?"
+
+  utter_domains:
+  - text: "Some of the available domains are- 
+           1. Web Development
+           2. Android Development
+           3. Cyber Security/Ethical Hacking
+           4. Marketing and Sales
+           5. Digital Marketing
+           6. Data Analyst
+           7. Content Writer"
+
+  utter_mode:
+  - text: "What is your preffered mode of internship?"
+
+  utter_location:
+  - text: "Enter your preferred location of work."
+
+  utter_type:
+  - text: "Paid/Unpaid type?"
+
+  utter_search:
+  - text: "Results will be available soon..."
+  
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

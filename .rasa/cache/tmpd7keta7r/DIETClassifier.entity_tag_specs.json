@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-domain",
+      "2": "I-domain",
+      "3": "L-domain",
+      "4": "U-domain",
+      "5": "B-field",
+      "6": "I-field",
+      "7": "L-field",
+      "8": "U-field",
+      "9": "B-kind_of",
+      "10": "I-kind_of",
+      "11": "L-kind_of",
+      "12": "U-kind_of",
+      "13": "B-location",
+      "14": "I-location",
+      "15": "L-location",
+      "16": "U-location",
+      "17": "B-mode",
+      "18": "I-mode",
+      "19": "L-mode",
+      "20": "U-mode",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-domain": 1,
+      "I-domain": 2,
+      "L-domain": 3,
+      "U-domain": 4,
+      "B-field": 5,
+      "I-field": 6,
+      "L-field": 7,
+      "U-field": 8,
+      "B-kind_of": 9,
+      "I-kind_of": 10,
+      "L-kind_of": 11,
+      "U-kind_of": 12,
+      "B-location": 13,
+      "I-location": 14,
+      "L-location": 15,
+      "U-location": 16,
+      "B-mode": 17,
+      "I-mode": 18,
+      "L-mode": 19,
+      "U-mode": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]
