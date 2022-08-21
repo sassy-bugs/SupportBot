@@ -1,60 +1,81 @@
 version: "3.1"
 
+
+
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - stipend
-  - place_of_work
-  - area_of_interest
-  - available_domains
-  - mode_of_work
-  - find_internship
+  - greet:
+      use_entities: []
+  - goodbye:
+      use_entities: []
+  - affirm:
+      use_entities: []
+  - deny:
+      use_entities: []
+  - mood_great:
+      use_entities: []
+  - mood_unhappy:
+      use_entities: []
+  - bot_challenge:
+      use_entities: []
+  - stipend:
+      use_entities: 
+        - kind_of
+  - place_of_work:
+      use_entities: 
+        - location
+  - area_of_interest:
+      use_entities: 
+        - field
+  - available_domains:
+      use_entities: []
+  - mode_of_work:
+      use_entities: 
+        - mode
+  - find_internship:
+      use_entities: 
+        - location
+        - field
 
 
-# entities:
-#   - kind_of
-#   - location
-#   - field
-#   - mode
-#   - stipend
+entities:
+  - kind_of
+  - location
+  - field
+  - mode
+  
 
-# slots:
-#   kind_of_internship:
-#     type: categorical
-#     values:
-#     - paid
-#     - unpaid
-#     mappings:
-#     - type: from_entity
-#       entity: kind_of
-#       intent: stipend
+slots:
+  kind_of_internship:
+    type: categorical
+    values:
+    - paid
+    - unpaid
+    mappings:
+    - type: from_entity
+      entity: kind_of
+      intent: stipend
     
-#   placeofwork:
-#     type: text
-#     mappings:
-#     - type: from_entity
-#       entity: location
+  placeofwork:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: location
 
-#   domain_of_interest:
-#     type: text
-#     mappings:
-#     - type: from_entity
-#       entity: field
+  domain_of_interest:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: field
 
-#   work_mode:
-#     type: categorical
-#     values:
-#     - online
-#     - offline
-#     - hybrid
-#     mappings:
-#     - type: from_entity
-#       entity: mode
+  work_mode:
+    type: categorical
+    values:
+    - online
+    - offline
+    - hybrid
+    mappings:
+    - type: from_entity
+      entity: mode
 
 
 responses:
@@ -85,12 +106,12 @@ responses:
 
   utter_domains:
   - text: "Some of the available domains are- 
-           1. Web Development
-           2. Android Development
-           3. Cyber Security/Ethical Hacking
-           4. Marketing and Sales
-           5. Digital Marketing
-           6. Data Analyst
+           1. Web Development\n
+           2. Android Development\n
+           3. Cyber Security/Ethical Hacking\n
+           4. Marketing and Sales\n
+           5. Digital Marketing\n
+           6. Data Analyst\n
            7. Content Writer"
 
   utter_mode:
@@ -105,7 +126,12 @@ responses:
   utter_search:
   - text: "Results will be available soon..."
   
-  
+config:
+  store_entities_as_slots: true
+
+# session_config:
+#    session_expiration_time: 60
+#    carry_over_slots_to_new_session: true  
 
 session_config:
   session_expiration_time: 60

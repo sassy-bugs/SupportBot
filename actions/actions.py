@@ -25,3 +25,111 @@
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+import json
+import random
+import datetime
+from typing import Dict, Text, Any, List, Optional
+import logging
+from rasa_sdk.interfaces import Action
+from rasa_sdk.events import (
+    SlotSet,
+    EventType,
+    ActionExecuted,
+    SessionStarted,
+    Restarted,
+    FollowupAction,
+    UserUtteranceReverted,
+    ActionExecutionRejected
+)
+from rasa_sdk import Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.forms import FormValidationAction
+from rasa_sdk.types import DomainDict
+
+
+logger = logging.getLogger(__name__)
+
+class ActionInternship(Action):
+
+    def name(self) -> Text:
+        """Unique identifier for the action."""
+        return "action_internship"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Executes the action"""
+        slots = ["kind_of_internship", "placeofwork", "domain_of_interest", "work_mode"]
+
+        for slot in slots:
+            if slot not in tracker.slots:
+                dispatcher.utter_template("utter_ask_{}".format(slot), tracker)
+                return [SlotSet(slot, None)]
+        
+
+
+        kind_of_internship = tracker.get_slot("kind_of_internship")
+        placeofwork = tracker.get_slot("placeofwork")
+        domain_of_interest = tracker.get_slot("domain_of_interest")
+        work_mode = tracker.get_slot("work_mode")
+        dispatcher.utter_message(template="utter_internship_confirmation", kind_of_internship=kind_of_internship, placeofwork=placeofwork, domain_of_interest=domain_of_interest, work_mode=work_mode)
+        return [SlotSet(slot, None) for slot in slots]
+
+class ActionJob(Action):
+
+    def name(self) -> Text:
+        """Unique identifier for the action."""
+        return "action_job"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Executes the action"""
+        slots = ["placeofwork", "domain_of_interest", "work_mode"]
+
+        for slot in slots:
+            if slot not in tracker.slots:
+                dispatcher.utter_template("utter_ask_{}".format(slot), tracker)
+                return [SlotSet(slot, None)]
+        
+        placeofwork = tracker.get_slot("placeofwork")
+        domain_of_interest = tracker.get_slot("domain_of_interest")
+        work_mode = tracker.get_slot("work_mode")
+        dispatcher.utter_message(template="utter_job_confirmation", placeofwork=placeofwork, domain_of_interest=domain_of_interest, work_mode=work_mode)
+        return [SlotSet(slot, None) for slot in slots]
+
+class ActionOpportunity(Action):
+
+    def name(self) -> Text:
+        """Unique identifier for the action."""
+        return "action_opportunity"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Executes the action"""
+        slots = ["Type", "level", "placeofwork", "domain_of_interest", "work_mode"]
+
+        for slot in slots:
+            if slot not in tracker.slots:
+                dispatcher.utter_template("utter_ask_{}".format(slot), tracker)
+                return [SlotSet(slot, None)]
+        
+
+
+        Type = tracker.get_slot("Type")
+        level = tracker.get_slot("level")
+        placeofwork = tracker.get_slot("placeofwork")
+        domain_of_interest = tracker.get_slot("domain_of_interest")
+        work_mode = tracker.get_slot("work_mode")
+        dispatcher.utter_message(template="utter_opportunity_confirmation", Type=Type, level=level, placeofwork=placeofwork, domain_of_interest=domain_of_interest, work_mode=work_mode)
+        return [SlotSet(slot, None) for slot in slots]

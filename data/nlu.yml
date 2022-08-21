@@ -53,8 +53,8 @@ nlu:
   examples: |
     - How to get internship?
     - Find internships near me.
-    - Find internships in Delhi.
-    - Internships for web development.
+    - Find internships in [Delhi](location).
+    - Internships for [web development](field).
     
 - intent: mood_unhappy
   examples: |
@@ -82,21 +82,21 @@ nlu:
 
 - intent: stipend
   examples: |
-    - I want paid internships.
-    - paid
-    - Look for paid
+    - I want [paid](kind_of) internships.
+    - [paid](kind_of)
+    - Look for [paid](kind_of)
 
 - intent: place_of_work
   examples: |
-    - I want Delhi based internships.
-    - I want internships in Delhi.
-    - Delhi
+    - I want [Delhi](location) based internships.
+    - I want internships in [Delhi](location).
+    - [Delhi](location).
 
 - intent: area_of_interest
   examples: |
-    - My domain is App Development.
-    - My field of interest is App developmentfield.
-    - App development.
+    - My domain is [App Development](field).
+    - My field of interest is [App development](field).
+    - [App development](field).
 
 - intent: available_domains
   examples: |
@@ -107,8 +107,9 @@ nlu:
 
 - intent: mode_of_work
   examples: |
-    - hybrid
-    - I want offline internships.
-    - online internships.
+    - [hybrid](mode)
+    - I want (offline)[mode] internships.
+    - [online](mode) internships.
     - work from home.
+    - anything.
 
