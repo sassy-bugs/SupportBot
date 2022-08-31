@@ -53,7 +53,7 @@ class ActionInternship(Action):
 
     def name(self) -> Text:
         """Unique identifier for the action."""
-        return "action_internship"
+        return "internship_form"
 
     async def run(
         self,
@@ -75,14 +75,26 @@ class ActionInternship(Action):
         placeofwork = tracker.get_slot("placeofwork")
         domain_of_interest = tracker.get_slot("domain_of_interest")
         work_mode = tracker.get_slot("work_mode")
-        dispatcher.utter_message(template="utter_internship_confirmation", kind_of_internship=kind_of_internship, placeofwork=placeofwork, domain_of_interest=domain_of_interest, work_mode=work_mode)
+
+        # Search for the internship in DB
+        # If found, return the internship
+        # If not found, return None
+        # If multiple found, return all of them in a list
+        
+
+
+        dispatcher.utter_message("We have received the following information:")
+        dispatcher.utter_message("Kind of internship: {}".format(kind_of_internship))
+        dispatcher.utter_message("Place of work: {}".format(placeofwork))
+        dispatcher.utter_message("Domain of interest: {}".format(domain_of_interest))
+        dispatcher.utter_message("Work mode: {}".format(work_mode))
         return [SlotSet(slot, None) for slot in slots]
 
 class ActionJob(Action):
 
     def name(self) -> Text:
         """Unique identifier for the action."""
-        return "action_job"
+        return "job_form"
 
     async def run(
         self,
@@ -101,14 +113,24 @@ class ActionJob(Action):
         placeofwork = tracker.get_slot("placeofwork")
         domain_of_interest = tracker.get_slot("domain_of_interest")
         work_mode = tracker.get_slot("work_mode")
-        dispatcher.utter_message(template="utter_job_confirmation", placeofwork=placeofwork, domain_of_interest=domain_of_interest, work_mode=work_mode)
+        dispatcher.utter_message("We have received the following information:")
+        dispatcher.utter_message("Place of work: {}".format(placeofwork))
+        dispatcher.utter_message("Domain of interest: {}".format(domain_of_interest))
+        dispatcher.utter_message("Work mode: {}".format(work_mode))
+
+        #Search for job in DB
+        #If found, return the job
+        #If not found, return None
+        #If multiple found, return all of them in a list
+
+
         return [SlotSet(slot, None) for slot in slots]
 
 class ActionOpportunity(Action):
 
     def name(self) -> Text:
         """Unique identifier for the action."""
-        return "action_opportunity"
+        return "opportunity_form"
 
     async def run(
         self,
@@ -131,5 +153,17 @@ class ActionOpportunity(Action):
         placeofwork = tracker.get_slot("placeofwork")
         domain_of_interest = tracker.get_slot("domain_of_interest")
         work_mode = tracker.get_slot("work_mode")
-        dispatcher.utter_message(template="utter_opportunity_confirmation", Type=Type, level=level, placeofwork=placeofwork, domain_of_interest=domain_of_interest, work_mode=work_mode)
+
+        # Search for the opportunity in DB
+        # If found, return the opportunity
+        # If not found, return None
+        # If multiple found, return all of them in a list
+
+
+        dispatcher.utter_message("We have received the following information:")
+        dispatcher.utter_message("Type: {}".format(Type))
+        dispatcher.utter_message("level: {}".format(level))
+        dispatcher.utter_message("place of work: {}".format(placeofwork))
+        dispatcher.utter_message("domain of interest: {}".format(domain_of_interest))
+        dispatcher.utter_message("work mode: {}".format(work_mode))
         return [SlotSet(slot, None) for slot in slots]

@@ -1,4 +1,4 @@
-version: "3.1"
+version: "3.0"
 
 
 
@@ -77,6 +77,28 @@ slots:
     - type: from_entity
       entity: mode
 
+forms:
+  internship_form:
+    required_slots:
+    - kind_of_internship
+    - placeofwork
+    - domain_of_interest
+    - work_mode
+  
+  job_form:
+    required_slots:
+    - placeofwork
+    - domain_of_interest
+    - work_mode
+  
+  opportunity_form:
+    required_slots:
+    - placeofwork
+    - domain_of_interest
+    - work_mode
+
+actions:
+- validate_internship_form
 
 responses:
   utter_greet:
@@ -128,10 +150,6 @@ responses:
   
 config:
   store_entities_as_slots: true
-
-# session_config:
-#    session_expiration_time: 60
-#    carry_over_slots_to_new_session: true  
 
 session_config:
   session_expiration_time: 60
