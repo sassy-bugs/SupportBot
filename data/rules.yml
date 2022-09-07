@@ -1,6 +1,11 @@
-version: "3.0"
+version: "3.1"
 
 rules:
+
+- rule: Greet User
+  steps:
+  - intent: greet
+  - action: utter_greet
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
@@ -31,40 +36,70 @@ rules:
   # The actions we want to run when the form is submitted.
   # - action: utter_internship_confirmation
 
-# - rule: Activate job form
-#   steps:
-#   - intent: find_job
-#   - action: job_form
-#   - active_loop: job_form
+- rule: Activate job form
+  steps:
+  - intent: find_job
+  - action: job_form
+  - active_loop: job_form
 
-# - rule: Submit job form
-#   condition:
-#   # Condition that form is active.
-#   - active_loop: job_form
-#   steps:
-#   # Form is deactivated
-#   - action: job_form
-#   - active_loop: null
-#   - slot_was_set:
-#     - requested_slot: null
-#   # The actions we want to run when the form is submitted.
-#   - action: utter_job_confirmation
+- rule: Submit job form
+  condition:
+  # Condition that form is active.
+  - active_loop: job_form
+  steps:
+  # Form is deactivated
+  - action: job_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  # - action: utter_job_confirmation
 
-# - rule: Activate opportunity form
-#   steps:
-#   - intent: find_opportunity
-#   - action: opportunity_form
-#   - active_loop: opportunity_form
+- rule: Activate opportunity form
+  steps:
+  - intent: find_opportunity
+  - action: opportunity_form
+  - active_loop: opportunity_form
 
-# - rule: Submit opportunity form
-#   condition:
-#   # Condition that form is active.
-#   - active_loop: opportunity_form
-#   steps:
-#   # Form is deactivated
-#   - action: opportunity_form
-#   - active_loop: null
-#   - slot_was_set:
-#     - requested_slot: null
-#   # The actions we want to run when the form is submitted.
-#   - action: utter_opportunity_confirmation
+- rule: Submit opportunity form
+  condition:
+  # Condition that form is active.
+  - active_loop: opportunity_form
+  steps:
+  # Form is deactivated
+  - action: opportunity_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  # - action: utter_opportunity_confirmation
+
+#internship form validation
+- rule: Validate internship form
+  condition:
+  - active_loop: internship_form
+  steps:
+  - action: validate_internship_form
+  - active_loop: internship_form
+  - slot_was_set:
+    - requested_slot: null
+
+#job form validation
+- rule: Validate job form
+  condition:
+  - active_loop: job_form
+  steps:
+  - action: validate_job_form
+  - active_loop: job_form
+  - slot_was_set:
+    - requested_slot: null
+  
+#opportunity form validation
+- rule: Validate opportunity form
+  condition:
+  - active_loop: opportunity_form
+  steps:
+  - action: validate_opportunity_form
+  - active_loop: opportunity_form
+  - slot_was_set:
+    - requested_slot: null

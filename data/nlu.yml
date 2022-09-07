@@ -1,4 +1,4 @@
-version: "3.0"
+version: "3.1"
 
 nlu:
 - intent: greet
@@ -38,6 +38,9 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - sure
+    - okay
+    - yes please
 
 - intent: deny
   examples: |
@@ -48,6 +51,10 @@ nlu:
     - don't like that
     - no way
     - not really
+    - nope
+    - no thanks
+    - nahh
+    - nah
 
 - intent: find_internship
   examples: |
@@ -55,6 +62,7 @@ nlu:
     - Find internships near me.
     - Find internships in [Delhi](location).
     - Internships for [web development](field).
+    - I am looking for internships.
     
 - intent: mood_unhappy
   examples: |
@@ -85,6 +93,8 @@ nlu:
     - I want [paid](kind_of) internships.
     - [paid](kind_of)
     - Look for [paid](kind_of)
+    - I want [unpaid](kind_of) internships.
+    - [unpaid](kind_of)
 
 - intent: place_of_work
   examples: |
@@ -97,6 +107,9 @@ nlu:
     - My domain is [App Development](field).
     - My field of interest is [App development](field).
     - [App development](field).
+    - I want internships in [App development](field).
+    - I would like to work in [App development](field).
+    - [App development](field) sounds good.
 
 - intent: available_domains
   examples: |
@@ -104,6 +117,8 @@ nlu:
     - I have yet not decided.
     - I am not sure.
     - I have interest in more than one domains.
+    - Can you suggest me some domains?
+    - Show me a list of available domains.
 
 - intent: mode_of_work
   examples: |
@@ -112,4 +127,49 @@ nlu:
     - [online](mode) internships.
     - work from home.
     - anything.
+    - I am not sure.
+    - I want to work in [hybrid](mode) mode.
 
+- intent: find_job
+  examples: |
+    - I want to find a job.
+    - I want to find a job in [Delhi](location).
+    - I want to find a job in [App development](field).
+    - I want to find a job in [hybrid](mode) mode.
+    - I want to find a job in [Delhi](location) in [App development](field).
+    - I am looking for a job.
+    - Show me a list of available jobs.
+
+- intent: find_opportunity
+  examples: |
+    - I want to find an opportunity.
+    - I want to find a [scholarship](category) in [Delhi](location).
+    - I am looking for a [national](level) [scholarship](category).
+    - I want to find a [courses](category) in [App development](field).
+    - I want to find a [conference] in [hybrid](mode) mode.
+    - I want to find an opportunity in [Delhi](location) in [App development](field).
+    - I am looking for an opportunity.
+    - Show me a list of available opportunities.
+    - Show me some [international](level) [fellowships](category).
+
+- intent: scale_of_opportunity
+  examples: |
+    - I want [national](level) opportunities.
+    - I want [international](level) opportunities.
+    - [national](level)
+    - [international](level)
+    - I am looking for [national](level) opportunities.
+    - Show me some [national](level) opportunities.
+
+- intent: type_of_opportunity
+  examples: |
+    - I want [scholarships](category) opportunities.
+    - I want [fellowships](category) opportunities.
+    - I want [courses](category) opportunities.
+    - I want [conference](category) opportunities.
+    - [scholarships](category)
+    - [fellowships](category)
+    - [courses](category)
+    - [conference](category)
+    - I am looking for [scholarships](category) opportunities.
+    - Show me some [scholarships](category) opportunities.

@@ -1,6 +1,4 @@
-version: "3.0"
-
-
+version: "3.1"
 
 intents:
   - greet:
@@ -31,10 +29,25 @@ intents:
   - mode_of_work:
       use_entities: 
         - mode
+  - scale_of_opportunity:
+      use_entities: 
+        - level
+  - type_of_opportunity:
+      use_entities: 
+        - Type
   - find_internship:
       use_entities: 
         - location
         - field
+  - find_job:
+      use_entities: 
+        - location
+        - field
+  - find_opportunity:
+      use_entities: 
+        - location
+        - field
+        - Type
 
 
 entities:
@@ -42,9 +55,32 @@ entities:
   - location
   - field
   - mode
+  - level
+  - Type
   
 
 slots:
+  scale:
+    type: categorical
+    values:
+    - Local
+    - National
+    - International
+    mappings:
+    - type: from_entity
+      entity: level
+
+  category:
+    type: categorical
+    values:
+    - Scholarship
+    - Fellowship
+    - Courses
+    - Conference
+    mappings:
+    - type: from_entity
+      entity: Type
+
   kind_of_internship:
     type: categorical
     values:
@@ -96,13 +132,25 @@ forms:
     - placeofwork
     - domain_of_interest
     - work_mode
+    - Type
+    - level
 
-actions:
-- validate_internship_form
+# actions:
+# - validate_internship_form
+# - validate_job_form
+# - validate_opportunity_form
+
 
 responses:
   utter_greet:
-  - text: "Hey! Are you looking for internships?"
+  - text: "Hey! What can I help you with today?"
+    buttons:
+    - title: "Internship"
+      payload: "/internship_form"
+    - title: "Job"
+      payload: "/job_form"
+    - title: "Opportunity"
+      payload: "/opportunity_form"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -110,21 +158,46 @@ responses:
 
   utter_did_that_help:
   - text: "Did that help you?"
+    buttons:
+    - title: "Yes"
+      payload: "/affirm" 
+    - title: "No"
+      payload: "/deny"
 
   utter_happy:
   - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Oh!Sorry"
+  - text: "Oh! Sorry"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, powered by Rasa and developed by students of IGDTUW."
 
   utter_goal:
   - text: "How can I help you?"
+    buttons:
+    - title: "Internship"
+      payload: "/internship_form"
+    - title: "Job"
+      payload: "/job_form"
+    - title: "Opportunity"
+      payload: "/opportunity_form"
 
-  utter_domain:
+  utter_ask_domain_of_interest:
   - text: "What is your field of interest?"
+    buttons:
+    - title: "App Development"
+      intent: "area_of_interest"
+      entities:
+        - field: "App Development"
+    - title: "Web Development"
+      intent: "area_of_interest"
+      entities:
+        - field: "Web Development"
+    - title: "Software Engineering"
+      intent: "area_of_interest"
+      entities:
+        - field: "Software Engineering"
 
   utter_domains:
   - text: "Some of the available domains are- 
@@ -135,15 +208,100 @@ responses:
            5. Digital Marketing\n
            6. Data Analyst\n
            7. Content Writer"
+  - text: "What is your field of interest?"
+    buttons:
+    - title: "App Development"
+      intent: "area_of_interest"
+      entities:
+        - field: "App Development"
+    - title: "Web Development"
+      intent: "area_of_interest"
+      entities:
+        - field: "Web Development"
+    - title: "Software Engineering"
+      intent: "area_of_interest"
+      entities:
+        - field: "Software Engineering"
 
-  utter_mode:
+  utter_ask_work_mode:
   - text: "What is your preffered mode of internship?"
+    buttons:
+    - title: "Work from home"
+      intent: "mode_of_work"
+      entities:
+        - mode: "online"
+    - title: "Work from office"
+      intent: "mode_of_work"
+      entities:
+        - mode: "offline"
+    - title: "Hybrid"
+      intent: "mode_of_work"
+      entities:
+        - mode: "hybrid"
 
-  utter_location:
+  utter_ask_placeofwork:
   - text: "Enter your preferred location of work."
+    buttons:
+    - title: "Delhi"
+      intent: "place_of_work"
+      entities:
+        - location: "Delhi"
+    - title: "Hyderabad"
+      intent: "place_of_work"
+      entities:
+        - location: "Hyderabad"
+    - title: "Bangalore"
+      intent: "place_of_work"
+      entities:
+        - location: "Bangalore"
 
-  utter_type:
+  utter_ask_kind_of_internship:
   - text: "Paid/Unpaid type?"
+    buttons:
+    - title: "Paid"
+      intent: "stipend"
+      entities:
+        - kind_of: "paid"
+    - title: "Unpaid"
+      intent: "stipend"
+      entities:
+        - kind_of: "unpaid"
+
+  utter_ask_scale:
+  - text: "Are you looking for local, national or international opportunities?"
+    buttons:
+    - title: "Local/Regional"
+      intent: "scale_of_opportunity"
+      entities:
+        - level: "local"
+    - title: "National"
+      intent: "scale_of_opportunity"
+      entities:
+        - level: "national"
+    - title: "International"
+      intent: "scale_of_opportunity"
+      entities:
+        - level: "international"
+
+  utter_ask_category:
+  - text: "What type of opportunity are you looking for? (Scholarships/ Fellowships/ Courses/ Conferences)"
+    buttons:
+    - title: "Scholarships"
+      intent: "type_of_opportunity"
+      entities: 
+        - Type: "scholarship"
+    - title: "Fellowships"
+      intent: "type_of_opportunity"
+      entities: 
+        - Type: "fellowship"
+    - title: "Courses"
+      intent: "type_of_opportunity"
+      entities: 
+        - Type: "course"
+    - title: "Conference"
+      intent: "type_of_opportunity"
+      entities: 
+        - Type: "conference"
 
   utter_search:
   - text: "Results will be available soon..."
