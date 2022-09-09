@@ -189,6 +189,10 @@ nlu:
     - [conference](category)
     - I am looking for [scholarships](category) opportunities.
     - Show me some [scholarships](category) opportunities.
+    - [Scholarship](category)
+    - [Fellowship](category)
+    - [Course](category)
+    - [Conference](category)
 
 - intent: out_of_scope
   examples: |
