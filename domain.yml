@@ -426,6 +426,13 @@ lookup_tables:
   - Cloud Computing
   - Database Administration
   - Networking
+  - Software Engineering
+  - SWE
+  - SDE
+  - Software Development Engineering
+  - Software Development Engineer
+  - Software Development Engineer in Test
+  
 
 - name: work_mode
   elements:
@@ -836,7 +843,7 @@ responses:
   utter_default:
   - text: Sorry, I didn't get that. Try asking something else.
 
-  
+
   
 config:
   store_entities_as_slots: true
