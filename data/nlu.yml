@@ -100,18 +100,23 @@ nlu:
     - Look for [paid](kind_of)
     - I want [unpaid](kind_of) internships.
     - [unpaid](kind_of)
+    - [paid](kind_of)
 
 - intent: place_of_work
   examples: |
     - I want [Delhi](location) based internships.
     - I want internships in [Delhi](location).
     - [Delhi](location).
+    - [Hyderabad](location).
+    - [Bangalore](location).
 
 - intent: area_of_interest
   examples: |
     - My domain is [App Development](field).
     - My field of interest is [App development](field).
     - [App development](field).
+    - [Web development](field).
+    - [Software engineering](field).
     - I want internships in [App development](field).
     - I would like to work in [App development](field).
     - [App development](field) sounds good.
@@ -128,6 +133,8 @@ nlu:
 - intent: mode_of_work
   examples: |
     - [hybrid](mode)
+    - [offline] (mode)
+    - [online](mode)
     - I want (offline)[mode] internships.
     - [online](mode) internships.
     - work from home.

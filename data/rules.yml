@@ -34,7 +34,7 @@ rules:
   - slot_was_set:
     - requested_slot: null
   # The actions we want to run when the form is submitted.
-  # - action: utter_internship_confirmation
+   - action: utter_results
 
 # Add unhappy internship form rule
 
@@ -58,7 +58,7 @@ rules:
   - slot_was_set:
     - requested_slot: null
   # The actions we want to run when the form is submitted.
-  # - action: utter_job_confirmation
+   - action: utter_results
 
 - rule: Activate opportunity form
   steps:
@@ -77,37 +77,37 @@ rules:
   - slot_was_set:
     - requested_slot: null
   # The actions we want to run when the form is submitted.
-  # - action: utter_opportunity_confirmation
+   - action: utter_results
 
-#internship form validation
-- rule: Validate internship form
-  condition:
-  - active_loop: internship_form
-  steps:
-  - action: validate_internship_form
-  - active_loop: internship_form
-  - slot_was_set:
-    - requested_slot: null
+# #internship form validation
+# - rule: Validate internship form
+#   condition:
+#   - active_loop: internship_form
+#   steps:
+#   - action: validate_internship_form
+#   - active_loop: internship_form
+#   - slot_was_set:
+#     - requested_slot: null
 
-#job form validation
-- rule: Validate job form
-  condition:
-  - active_loop: job_form
-  steps:
-  - action: validate_job_form
-  - active_loop: job_form
-  - slot_was_set:
-    - requested_slot: null
+# #job form validation
+# - rule: Validate job form
+#   condition:
+#   - active_loop: job_form
+#   steps:
+#   - action: validate_job_form
+#   - active_loop: job_form
+#   - slot_was_set:
+#     - requested_slot: null
   
-#opportunity form validation
-- rule: Validate opportunity form
-  condition:
-  - active_loop: opportunity_form
-  steps:
-  - action: validate_opportunity_form
-  - active_loop: opportunity_form
-  - slot_was_set:
-    - requested_slot: null
+# #opportunity form validation
+# - rule: Validate opportunity form
+#   condition:
+#   - active_loop: opportunity_form
+#   steps:
+#   - action: validate_opportunity_form
+#   - active_loop: opportunity_form
+#   - slot_was_set:
+#     - requested_slot: null
 
 - rule: out-of-scope
   steps:
