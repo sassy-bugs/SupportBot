@@ -63,6 +63,11 @@ nlu:
     - Find internships in [Delhi](location).
     - Internships for [web development](field).
     - I am looking for internships.
+    - I want to find internships.
+    - I want to find internships in [Delhi](location).
+    - I want to find internships in [Delhi](location) for [web development](field).
+    - I want to find internships for [web development](field).
+    - I want to find internships for [web development](field) in [Delhi](location).
     
 - intent: mood_unhappy
   examples: |
@@ -173,3 +178,10 @@ nlu:
     - [conference](category)
     - I am looking for [scholarships](category) opportunities.
     - Show me some [scholarships](category) opportunities.
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+

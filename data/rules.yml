@@ -36,6 +36,11 @@ rules:
   # The actions we want to run when the form is submitted.
   # - action: utter_internship_confirmation
 
+# Add unhappy internship form rule
+
+
+
+
 - rule: Activate job form
   steps:
   - intent: find_job
@@ -103,3 +108,14 @@ rules:
   - active_loop: opportunity_form
   - slot_was_set:
     - requested_slot: null
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+rules:
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
