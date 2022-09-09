@@ -432,7 +432,7 @@ lookup_tables:
   - Software Development Engineering
   - Software Development Engineer
   - Software Development Engineer in Test
-  
+
 
 - name: work_mode
   elements:
@@ -795,7 +795,7 @@ responses:
       entities:
         - kind_of: "unpaid"
 
-  utter_ask_scale:
+  utter_ask_level:
   - text: "Are you looking for local, national or international opportunities?"
     buttons:
     - title: "Local/Regional"
@@ -811,7 +811,7 @@ responses:
       entities:
         - level: "international"
 
-  utter_ask_category:
+  utter_ask_Type:
   - text: "What type of opportunity are you looking for? (Scholarships/ Fellowships/ Courses/ Conferences)"
     buttons:
     - title: "Scholarships"
