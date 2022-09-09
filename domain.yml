@@ -833,6 +833,28 @@ responses:
 
   utter_search:
   - text: "Results will be available soon..."
+  
+  utter_slots_values_internship:
+  - text: "The following are the details you have provided:
+           Domain: {domain}
+           Mode of work: {mode}
+           Place of work: {location}
+           Stipend: {kind_of}"
+
+  utter_slots_values_job:
+  - text: "The following are the details you have provided:
+           Domain: {domain}
+           Mode of work: {mode}
+           Place of work: {location}"
+
+  utter_slots_values_opportunity:
+  - text: "The following are the details you have provided:
+           Type: {Type}
+           Level: {level}
+           Domain: {domain}
+           Mode of work: {mode}
+           Place of work: {location}"
+
 
   utter_out_of_scope:
   - text: Sorry, I can't handle that request. 
