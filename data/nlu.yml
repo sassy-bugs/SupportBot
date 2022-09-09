@@ -141,6 +141,10 @@ nlu:
     - anything.
     - I am not sure.
     - I want to work in [hybrid](mode) mode.
+    - [Work from Home](mode).
+    - [Work from office](mode).
+    - [Work from anywhere](mode).
+    - [hybrid](mode) mode.
 
 - intent: find_job
   examples: |
