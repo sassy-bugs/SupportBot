@@ -1,2 +1,3 @@
 # SupportBot
- Resolves queries regarding internship
+ A conversational AI , built using Rasa open source framework, with a purpose to solve educational queries
+ 
